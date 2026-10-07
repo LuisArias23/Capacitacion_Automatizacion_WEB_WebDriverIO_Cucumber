@@ -15,6 +15,6 @@ When('selecciona {string} de la seccion Country selection', async (country: stri
 );
 
 Then('Visualizar el DropDown seleccionados', async () => {
-    await laboratorio5.validaSelecDropDown("Colombia")}
-);
+    await laboratorio5.validaSelecDropDown("Colombia");
+});
 

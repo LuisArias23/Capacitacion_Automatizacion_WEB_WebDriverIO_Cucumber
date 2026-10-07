@@ -1,16 +1,17 @@
-import laboratoriosPage from '../page/laboratoriosPage';
+import automationTestingPage from '../page/automationTestingPage';
 import { expect } from '@wdio/globals';
 
-class laboratorio3Task {
-
+class Laboratorio3Task {
     async ingresarCredenciales() {
-        await laboratoriosPage.campoEmail.waitForClickable;
-        await laboratoriosPage.campoEmail.setValue("luis@gmail.com");
-        await laboratoriosPage.campoPassword.setValue("123456");
-        await laboratoriosPage.btnEnter.click();
+        await automationTestingPage.campoEmail.waitForClickable();
+        await automationTestingPage.campoEmail.setValue("luis@gmail.com");
+        await automationTestingPage.campoPassword.setValue("123456");
+        await automationTestingPage.btnEnter.click();
     }
+
     async validarMensajeError(mensaje: string) {
-        await expect(laboratoriosPage.mensajeError).toHaveText(mensaje);
+        await expect(automationTestingPage.mensajeError).toHaveText(mensaje);
     }
 }
-export default new laboratorio3Task();
+
+export default new Laboratorio3Task();

@@ -18,15 +18,13 @@ export const config: WebdriverIO.Config = {
   capabilities: [
     {
       browserName: "chrome",
-      browserVersion: "152",
       "wdio:enforceWebDriverClassic": true,
       "goog:chromeOptions": {
-        args: ['--start-maximized',
+        args: [
+          '--start-maximized',
           '--disable-notifications',
-          //'--disable-popup-blocking',
           '--disable-infobars'
-          //'--disable-extensions'
-          ],
+        ],
       },
     },
   ],
@@ -70,14 +68,7 @@ export const config: WebdriverIO.Config = {
 
   cucumberOpts: {
     require: [
-      './src/laboratorios/steps/laboratorio1.steps.ts',
-      './src/laboratorios/steps/laboratorio2.steps.ts',
-      './src/laboratorios/steps/laboratorio3.steps.ts',
-      './src/laboratorios/steps/laboratorio4.steps.ts',
-      './src/laboratorios/steps/laboratorio5.steps.ts',
-      './src/laboratorios/steps/laboratorio6.steps.ts',
-      './src/laboratorios/steps/laboratorio7.steps.ts',
-      './src/navegacionDocumentacionWebdriverIO/steps/navigation.steps.ts'
+      './src/**/*.steps.ts'
     ],
     backtrace: false,
     requireModule: [],

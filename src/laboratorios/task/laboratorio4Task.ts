@@ -1,22 +1,24 @@
-import laboratoriosPage from '../page/laboratoriosPage';
+import checkboxesPage from '../page/checkboxesPage';
 import { expect } from '@wdio/globals';
 import { AppUrls } from '../../util/urls.js';
 
-class laboratorio4Task {
+class Laboratorio4Task {
     async abrirPagina() {
         await AppUrls.navegarA(AppUrls.lab4);
     }
+
     async seleccionarCheckBox() {
-        await laboratoriosPage.checkBox.waitForExist({ timeout: 10000 });
-        await laboratoriosPage.checkBox.scrollIntoView({ block: 'center', inline: 'center' });
-        //await laboratoriosPage.checkBox.click();
-        await browser.execute((el) => {
+        await checkboxesPage.checkBox.waitForExist({ timeout: 10000 });
+        await checkboxesPage.checkBox.scrollIntoView({ block: 'center', inline: 'center' });
+        await browser.execute((el: any) => {
             el.click();
-        }, await laboratoriosPage.checkBox);
+        }, await checkboxesPage.checkBox);
     }
+
     async validarCheckBox() {
-        await laboratoriosPage.checkBox.waitForExist({ timeout: 5000 });
-        await expect(laboratoriosPage.checkBox).toBeSelected();
+        await checkboxesPage.checkBox.waitForExist({ timeout: 5000 });
+        await expect(checkboxesPage.checkBox).toBeSelected();
     }
 }
-export default new laboratorio4Task();
+
+export default new Laboratorio4Task();
