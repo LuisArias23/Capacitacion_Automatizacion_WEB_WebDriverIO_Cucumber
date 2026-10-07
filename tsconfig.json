@@ -1,0 +1,58 @@
+{
+  "compilerOptions": {
+    // Estrategia de resolución de módulos moderna, pensada para bundlers (Vite, esbuild, etc.), en vez de la resolución clásica de Node
+    "moduleResolution": "bundler",
+ 
+    // Sistema de módulos que usará el código compilado (ESNext = usa import/export nativos de JavaScript moderno)
+    "module": "ESNext",
+ 
+    // Versión de JavaScript a la que se compila el código (ES2022 = features modernas como top-level await, etc.)
+    "target": "es2022",
+ 
+    // Librerías de tipos disponibles: ES2022 (métodos modernos de JS) y DOM (window, document, etc. si aplica)
+    "lib": ["es2022", "dom"],
+ 
+    // Paquetes de definiciones de tipos (@types) que se cargan automáticamente sin necesidad de importarlos
+    "types": [
+      "node",                        // Tipos de Node.js (fs, path, process, etc.)
+      "@wdio/globals/types",         // Tipos globales de WebdriverIO (browser, $, $$, etc.)
+      "expect-webdriverio",          // Tipos de los matchers de expect (toBeVisible, toHaveText, etc.)
+      "@wdio/cucumber-framework"     // Tipos del framework Cucumber integrado con WebdriverIO
+    ],
+ 
+    // Omite la verificación de tipos en archivos .d.ts de librerías externas (acelera la compilación)
+    "skipLibCheck": true,
+ 
+    // No genera archivos de salida (.js); se usa solo para chequeo de tipos, ya que otra herramienta (ts-node, esbuild, etc.) se encarga de ejecutar el código
+    "noEmit": true,
+ 
+    // Permite importar archivos usando la extensión .ts directamente en los imports (ej: import './foo.ts')
+    "allowImportingTsExtensions": true,
+ 
+    // Permite importar archivos .json como módulos (import data from './data.json')
+    "resolveJsonModule": true,
+ 
+    // Obliga a que cada archivo pueda transpilarse de forma aislada (requerido por bundlers como esbuild/swc)
+    "isolatedModules": true,
+ 
+    // Activa todas las comprobaciones estrictas de tipos (null checks, tipos implícitos any, etc.)
+    "strict": true,
+ 
+    // Marca error si hay variables/imports declarados pero nunca usados
+    "noUnusedLocals": true,
+ 
+    // Marca error si hay parámetros de función declarados pero nunca usados
+    "noUnusedParameters": true,
+ 
+    // Evita bugs por "caídas" accidentales entre casos de un switch sin break
+    "noFallthroughCasesInSwitch": true
+  },
+ 
+  // Rutas y patrones de archivos que TypeScript debe incluir en el proyecto
+  "include": [
+    "src/**/*.ts",      // Todo el código fuente TypeScript dentro de src/
+    "wdio.conf.ts",     // Archivo de configuración de WebdriverIO
+    "config/**/*.js"    // Archivos de configuración adicionales en JS
+  ]
+  
+}

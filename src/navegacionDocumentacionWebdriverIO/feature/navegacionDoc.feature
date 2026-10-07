@@ -10,4 +10,4 @@ Feature: Navegacion Documentacion pagina web IO
 
     When hago click en el boton de documentacion "Docs"
 
-    Then visualizo el titulo "Primeros Pasos"
+    Then visualizo el titulo "Getting Started"

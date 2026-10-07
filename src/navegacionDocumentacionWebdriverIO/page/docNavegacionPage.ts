@@ -3,7 +3,7 @@ import { $ } from '@wdio/globals';
 class DocNavegacionPage {
     get docsLink() {
         //return $('a[href="/docs/gettingstarted"]');
-        return $('=Documentación');
+    return $('=Docs');
     }
 
     get mainHeading() {

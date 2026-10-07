@@ -24,7 +24,7 @@ class LaboratoriosPage {
     }
     //-->Lab4
     get checkBox() {
-        return $('#checkbox1');
+        return $('(//input[@type="checkbox"])[1]');
     }
     //-->Lab5
     get selecLista() {
